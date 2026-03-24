@@ -1,9 +1,9 @@
 {
     "name": "KarateKataApp",
     "short_name": "Kata",
-    "theme_color": "#262626",
-    "background_color": "#262626",
-    "display": "standalone",
+    "theme_color": "#0f172a",
+    "background_color": "#0f172a",
+    "display": "fullscreen",
     "orientation": "portrait",
     "scope": "/",
     "start_url": "/"
