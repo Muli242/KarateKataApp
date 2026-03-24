@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Shotokan Kata Trainer</title>
+    
+    <!-- Google Fonts for Modern Typography & Japanese Kanji -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        
+        <header>
+            <div class="title-wrapper">
+                <img src="img/shotokan_tiger.svg" alt="Shotokan Tiger" class="title-logo">
+                <h1 class="app-title">Shotokan Karate</h1>
+            </div>
+            <h2 class="app-subtitle">Kata Trainer</h2>
+            <div class="selector-container">
+                <select id="kata-selector" class="kata-selector">
+                    <option value="" disabled selected>Wähle eine Kata...</option>
+                </select>
+            </div>
+        </header>
+
+        <main class="card-container" id="touch-area">
+            <!-- Loading Indicator or Initial State -->
+            <div class="kata-card" id="kata-card" onclick="this.classList.toggle('flipped')">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="card-glass-bg"></div>
+                        <div class="kata-content">
+                            <div class="kanji-display" id="kata-kanji">空手</div>
+                            <div class="name-display" id="kata-name">Bereit</div>
+                            <div class="meaning-display" id="kata-meaning">Tippe den Button oder Wische</div>
+                            
+                            <div class="stats-container">
+                                <div class="stat-box">
+                                    <span class="stat-label">Dauer</span>
+                                    <span class="stat-value" id="kata-length">--:--</span>
+                                </div>
+                                <div class="stat-divider"></div>
+                                <div class="stat-box">
+                                    <span class="stat-label">Moves</span>
+                                    <span class="stat-value" id="kata-movements">--</span>
+                                </div>
+                                <div class="stat-divider"></div>
+                                <div class="stat-box">
+                                    <span class="stat-label">Embusen</span>
+                                    <span class="stat-value" id="kata-embusen" style="width: 35px; height: 35px; line-height: 0;">--</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-back">
+                        <div class="card-glass-bg"></div>
+                        <div class="kata-content-back">
+                            <h3 class="back-title" id="kata-name-back">Kata</h3>
+                            <div style="width: 50px; height: 2px; background: var(--accent-color); margin: 0 auto 1.5rem auto;"></div>
+                            <p class="kata-description" id="kata-description">Zusätzliche Infos zur Kata erscheinen hier.</p>
+                            <span class="flip-hint">⟲ Antippen zum Zurückdrehen</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div class="controls">
+            <button class="generate-btn" id="generate-btn">
+                <span class="btn-text">
+                    Nächste Kata
+                </span>
+                <div class="btn-glow"></div>
+            </button>
+            <p class="swipe-hint">Oder nach links / rechts wischen</p>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
