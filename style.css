@@ -41,7 +41,7 @@ body {
 
 header {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 0rem;
 }
 
 .title-wrapper {
@@ -261,7 +261,7 @@ header {
 }
 
 .stat-label {
-    font-size: 0.75rem;
+    font-size: 0.60rem;
     text-transform: uppercase;
     letter-spacing: 1px;
     color: var(--text-muted);
