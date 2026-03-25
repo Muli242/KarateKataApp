@@ -1,7 +1,7 @@
 {
 	"manifest_version": 3,
 	"version": "1.0.0",
-	"name": "KarateKataApp",
+	"name": "Karate Kata App",
 	"short_name": "Kata App",
 	"description": "Übe täglich Kata",
 	"theme_color": "#0f172a",
