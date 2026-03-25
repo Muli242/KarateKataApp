@@ -19,6 +19,13 @@
 			"type": "image/png",
 			"form_factor": "wide",
 			"label": "Application"
+		},
+    {
+			"src": "https://muli242.github.io/KarateKataApp/img/TigerI.png",
+			"sizes": "192x192",
+			"type": "image/png",
+			"form_factor": "narrow",
+			"label": "Application"
 		}
 	],
 	"background_color": "#0f172a",
