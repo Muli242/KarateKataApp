@@ -7,14 +7,14 @@
 	"theme_color": "#0f172a",
 	"icons": [
 		{
-			"src": "img/TigerI.png",
+			"src": "/img/TigerI.png",
 			"sizes": "192x192",
 			"type": "image/png"
 		}
 	],
 	"screenshots": [
 		{
-			"src": "img/TigerII.png",
+			"src": "/img/TigerII.png",
 			"sizes": "640x640",
 			"type": "image/png",
 			"form_factor": "wide",
