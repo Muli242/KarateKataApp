@@ -1,7 +1,7 @@
 {
 	"manifest_version": 3,
 	"version": "1.0.0",
-	"name": "Karate Kata App",
+	"name": "KarateKataApp",
 	"short_name": "Kata App",
 	"description": "Übe täglich Kata",
 	"theme_color": "#0f172a",
@@ -19,14 +19,7 @@
 			"type": "image/png",
 			"form_factor": "wide",
 			"label": "Application"
-		},
-    {
-    "src": "/img/TigerII.png",
-    "sizes": "640x640",
-    "type": "image/png",
-    "form_factor": "narrow",
-    "label": "Application"
-  }
+		}
 	],
 	"background_color": "#0f172a",
 	"display": "fullscreen",
