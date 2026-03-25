@@ -7,15 +7,15 @@
 	"theme_color": "#0f172a",
 	"icons": [
 		{
-			"src": "img/Tiger.png",
+			"src": "img/TigerII.png",
 			"sizes": "192x192",
 			"type": "image/png"
 		}
 	],
 	"screenshots": [
 		{
-			"src": "img/Tiger.png",
-			"sizes": "640x320",
+			"src": "img/TigerI.png",
+			"sizes": "640x640",
 			"type": "image/png",
 			"form_factor": "wide",
 			"label": "Application"
