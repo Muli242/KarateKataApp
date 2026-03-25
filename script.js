@@ -144,6 +144,15 @@ function generateKata(direction = 'pop', specificIndex = null) {
     }, 300); // Wait for out animation to almost finish
 }
 
+DOM.btn.addEventListener('DOMContentLoaded', () => {
+    if("serviceWorker" in navigator)
+    {
+        navigator.serviceWorker.register('serviceWorker.js', { scpoe: '/' })
+        .then(() => console-console.log('serviceWorker registered'))
+        .catch((error) => console.warn(error));
+    }
+});
+
 // Button Click Event
 DOM.btn.addEventListener('click', () => {
     generateKata('pop');

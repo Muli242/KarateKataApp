@@ -1,20 +1,29 @@
 {
-    "manifest_version": 3,
-    "version": "1.0.0",
-    "name": "KarateKataApp",
-    "short_name": "Kata",
-    "description": "Übe täglich Kata",
-    "theme_color": "#0f172a",
-    "icons": [
-    {
-      "src": "img/shotokan_tiger.svg",
-      "sizes": "192x192",
-      "type": "image/svg"
-    }
-  ],
-    "background_color": "#0f172a",
-    "display": "fullscreen",
-    "orientation": "portrait",
-    "scope": "/",
-    "start_url": "https://muli242.github.io/KarateKataApp/index.html"
-  }
+	"manifest_version": 3,
+	"version": "1.0.0",
+	"name": "KarateKataApp",
+	"short_name": "Kata App",
+	"description": "Übe täglich Kata",
+	"theme_color": "#0f172a",
+	"icons": [
+		{
+			"src": "img/Tiger.png",
+			"sizes": "192x192",
+			"type": "image/png"
+		}
+	],
+	"screenshots": [
+		{
+			"src": "img/Tiger.png",
+			"sizes": "640x320",
+			"type": "image/png",
+			"form_factor": "wide",
+			"label": "Application"
+		}
+	],
+	"background_color": "#0f172a",
+	"display": "fullscreen",
+	"orientation": "portrait",
+	"scope": "/",
+	"start_url": "https://muli242.github.io/KarateKataApp/index.html"
+}
