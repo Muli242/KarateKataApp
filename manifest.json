@@ -19,7 +19,7 @@
 			"type": "image/png",
 			"form_factor": "wide",
 			"label": "Application"
-		}
+		},
     {
     "src": "/img/TigerII.png",
     "sizes": "640x640",
