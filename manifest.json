@@ -7,8 +7,8 @@
 	"theme_color": "#0f172a",
 	"icons": [
 		{
-			"src": "https://muli242.github.io/KarateKataApp/img/TigerI.png",
-			"sizes": "192x192",
+			"src": "https://muli242.github.io/KarateKataApp/img/TigerII.png",
+			"sizes": "640x640",
 			"type": "image/png"
 		}
 	],
@@ -21,8 +21,8 @@
 			"label": "Application"
 		},
     {
-			"src": "https://muli242.github.io/KarateKataApp/img/TigerI.png",
-			"sizes": "192x192",
+			"src": "https://muli242.github.io/KarateKataApp/img/TigerII.png",
+			"sizes": "640x640",
 			"type": "image/png"
 		}
 	],
