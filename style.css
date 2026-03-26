@@ -3,7 +3,8 @@
     --card-bg: rgba(30, 41, 59, 0.7);
     --card-border: rgba(255, 255, 255, 0.1);
     --primary-color: #f1f5f9;
-    --accent-color: #ef4444; /* Karate red */
+    --accent-color: #ef4444;
+    /* Karate red */
     --accent-glow: rgba(239, 68, 68, 0.5);
     --text-muted: #94a3b8;
     --font-main: 'Inter', sans-serif;
@@ -55,7 +56,7 @@ header {
 .title-logo {
     width: 2.5rem;
     height: 2.5rem;
-    filter: invert(1) brightness(1.5) drop-shadow(0 0 8px rgba(255,255,255,0.3));
+    filter: invert(1) brightness(1.5) drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
     mix-blend-mode: screen;
 }
 
@@ -66,7 +67,7 @@ header {
     text-transform: uppercase;
     color: var(--primary-color);
     margin-bottom: 0;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .app-subtitle {
@@ -110,7 +111,8 @@ header {
     transform: rotateY(180deg);
 }
 
-.card-front, .card-back {
+.card-front,
+.card-back {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -305,7 +307,8 @@ header {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
-.generate-btn:hover, .generate-btn:active {
+.generate-btn:hover,
+.generate-btn:active {
     background: var(--accent-color);
     box-shadow: 0 0 20px var(--accent-glow);
     transform: translateY(-2px);
@@ -365,6 +368,7 @@ header {
         transform: translateX(150%) rotateY(20deg) scale(0.9);
         opacity: 0;
     }
+
     100% {
         transform: translateX(0) rotateY(0) scale(1);
         opacity: 1;
@@ -376,6 +380,7 @@ header {
         transform: translateX(-150%) rotateY(-20deg) scale(0.9);
         opacity: 0;
     }
+
     100% {
         transform: translateX(0) rotateY(0) scale(1);
         opacity: 1;
@@ -387,6 +392,7 @@ header {
         transform: scale(0.8);
         opacity: 0;
     }
+
     100% {
         transform: scale(1);
         opacity: 1;
@@ -428,6 +434,7 @@ header {
     background: var(--bg-color);
     color: var(--primary-color);
 }
+
 /* Utility Classes */
 .hidden {
     display: none !important;
@@ -437,8 +444,10 @@ header {
 .header-top {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
+    padding: 0.5rem 0;
+    gap: 0.5rem;
 }
 
 .menu-toggle {
@@ -468,8 +477,13 @@ header {
     transition: all 0.3s ease;
 }
 
-.hamburger::before { top: -8px; }
-.hamburger::after { bottom: -8px; }
+.hamburger::before {
+    top: -8px;
+}
+
+.hamburger::after {
+    bottom: -8px;
+}
 
 /* Navigation Overlay */
 .nav-overlay {
@@ -520,7 +534,8 @@ header {
     transition: color 0.3s ease;
 }
 
-.nav-link:hover, .nav-link.active {
+.nav-link:hover,
+.nav-link.active {
     color: var(--accent-color);
 }
 
@@ -538,18 +553,32 @@ header {
     flex: 1;
     display: flex;
     flex-direction: column;
+    align-items: center;
     animation: fadeIn 0.5s ease;
+    width: 100%;
+    min-height: 0;
+    /* CRITICAL for flexbox scrolling */
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* About Page Styles */
 .about-content {
+    width: 100%;
     flex: 1;
     overflow-y: auto;
+    min-height: 0;
+    /* CRITICAL for flexbox scrolling */
     padding: 1rem 0;
     scrollbar-width: thin;
     scrollbar-color: var(--accent-color) transparent;
@@ -628,7 +657,8 @@ header {
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     z-index: 2000;
-    display: none; /* Controlled by JS */
+    display: none;
+    /* Controlled by JS */
     align-items: center;
     justify-content: center;
     padding: 1.5rem;

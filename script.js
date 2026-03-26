@@ -1,7 +1,5 @@
-class Kata
-{
-    constructor(name, kanji, length, movements, meaning, embusen, info, urlScheme, urlVideo, ignore)
-    {
+class Kata {
+    constructor(name = "", kanji = "", length = "", movements = 0, meaning = "", embusen = "", info = "", urlScheme = "", urlVideo = "", ignore = false) {
         this.name = name;
         this.kanji = kanji;
         this.length = length;
@@ -17,11 +15,11 @@ class Kata
 
 
 const svgs = {
-    ichi: `<svg viewBox="0 0 100 100" width="100%" height="100%"><line x1="10" y1="50" x2="90" y2="50" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><circle cx="50" cy="50" r="5" fill="currentColor"/></svg>`,
-    tei: `<svg viewBox="0 0 100 100" width="100%" height="100%"><line x1="20" y1="30" x2="80" y2="30" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><line x1="50" y1="30" x2="50" y2="80" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><circle cx="50" cy="80" r="5" fill="currentColor"/></svg>`,
-    ju: `<svg viewBox="0 0 100 100" width="100%" height="100%"><line x1="20" y1="50" x2="80" y2="50" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><line x1="50" y1="20" x2="50" y2="80" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><circle cx="50" cy="50" r="5" fill="currentColor"/></svg>`,
-    ko: `<svg viewBox="0 0 100 100" width="100%" height="100%"><line x1="20" y1="20" x2="80" y2="20" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><line x1="50" y1="20" x2="50" y2="80" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><line x1="20" y1="80" x2="80" y2="80" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><circle cx="50" cy="80" r="5" fill="currentColor"/></svg>`,
-    tsuchi: `<svg viewBox="0 0 100 100" width="100%" height="100%"><line x1="20" y1="80" x2="80" y2="80" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><line x1="50" y1="20" x2="50" y2="80" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><line x1="30" y1="50" x2="70" y2="50" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><circle cx="50" cy="80" r="5" fill="currentColor"/></svg>`
+    ichi: `<svg viewBox="0 0 100 100" width="68%" height="68%"><line x1="10" y1="50" x2="90" y2="50" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><circle cx="50" cy="50" r="5" fill="currentColor"/></svg>`,
+    tei: `<svg viewBox="0 0 100 100" width="68%" height="68%"><line x1="20" y1="30" x2="80" y2="30" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><line x1="50" y1="30" x2="50" y2="80" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><circle cx="50" cy="80" r="5" fill="currentColor"/></svg>`,
+    ju: `<svg viewBox="0 0 100 100" width="68%" height="68%"><line x1="20" y1="50" x2="80" y2="50" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><line x1="50" y1="20" x2="50" y2="80" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><circle cx="50" cy="50" r="5" fill="currentColor"/></svg>`,
+    ko: `<svg viewBox="0 0 100 100" width="68%" height="68%"><line x1="20" y1="20" x2="80" y2="20" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><line x1="50" y1="20" x2="50" y2="80" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><line x1="20" y1="80" x2="80" y2="80" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><circle cx="50" cy="80" r="5" fill="currentColor"/></svg>`,
+    tsuchi: `<svg viewBox="0 0 100 100" width="68%" height="68%"><line x1="20" y1="80" x2="80" y2="80" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><line x1="50" y1="20" x2="50" y2="80" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><line x1="30" y1="50" x2="70" y2="50" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><circle cx="50" cy="80" r="5" fill="currentColor"/></svg>`
 };
 
 const katas = [
@@ -67,14 +65,14 @@ const DOM = {
     btn: document.getElementById('generate-btn'),
     touchArea: document.getElementById('touch-area'),
     selector: document.getElementById('kata-selector'),
-    
+
     // New Elements
     menuToggle: document.getElementById('menu-toggle'),
     navOverlay: document.getElementById('nav-overlay'),
     navClose: document.getElementById('nav-close'),
     navLinks: document.querySelectorAll('.nav-link, .back-to-trainer'),
     views: document.querySelectorAll('.view'),
-    
+
     settingsModal: document.getElementById('settings-modal'),
     openSettings: document.getElementById('open-settings'),
     settingsClose: document.getElementById('settings-close'),
@@ -115,7 +113,7 @@ function switchView(viewId) {
             view.classList.add('hidden');
         }
     });
-    
+
     // Update active state in nav
     document.querySelectorAll('.nav-link').forEach(link => {
         if (link.getAttribute('data-view') === viewId) {
@@ -136,19 +134,19 @@ function populateFilterList() {
     katas.forEach((kata, index) => {
         const item = document.createElement('div');
         item.className = 'filter-item';
-        
+
         const checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
         checkbox.id = `filter-${index}`;
         checkbox.checked = !kata.ignore; // Checked means "included"
-        
+
         const label = document.createElement('label');
         label.htmlFor = `filter-${index}`;
         label.textContent = kata.name;
-        
+
         item.appendChild(checkbox);
         item.appendChild(label);
-        
+
         // Toggle on click of item
         item.addEventListener('click', (e) => {
             if (e.target !== checkbox) {
@@ -156,7 +154,7 @@ function populateFilterList() {
             }
             kata.ignore = !checkbox.checked;
         });
-        
+
         DOM.filterList.appendChild(item);
     });
 }
@@ -180,7 +178,7 @@ function resetUnshownKatas() {
     unshownKatas = katas
         .map((kata, index) => (!kata.ignore ? index : -1))
         .filter(index => index !== -1);
-    
+
     // If ALL katas are ignored, fallback to all katas to prevent infinite loop
     if (unshownKatas.length === 0) {
         unshownKatas = katas.map((_, index) => index);
@@ -191,11 +189,11 @@ function getRandomKataIndex() {
     if (unshownKatas.length === 0) {
         resetUnshownKatas();
     }
-    
+
     const poolIndex = Math.floor(Math.random() * unshownKatas.length);
     const selectedKataIndex = unshownKatas[poolIndex];
     unshownKatas.splice(poolIndex, 1);
-    
+
     return selectedKataIndex;
 }
 
