@@ -26,7 +26,7 @@ const svgs = {
 };
 
 const katas = [
-    new Kata("Taikyoku Shodan", "太極初段", "25 s", 20, "Erste Ursache", svgs.ko, "Die Anfänger-Kata. Lehrt die absoluten Grundlagen: Gedan-Barai, Oi-Zuki und Zenkutsu-Dachi.", "https://www.youtube.com/watch?v=S8LqJ4u5G6E", "https://www.youtube.com/watch?v=9S0ySAncTzE", "pdf/Nachrichtentechnik.pdf#page=4", false),
+    new Kata("Taikyoku Shodan", "太極初段", "25 s", 20, "Erste Ursache", svgs.ko, "Die Anfänger-Kata. Lehrt die absoluten Grundlagen: Gedan-Barai, Oi-Zuki und Zenkutsu-Dachi.", "https://www.youtube.com/watch?v=S8LqJ4u5G6E", "https://www.youtube.com/watch?v=9S0ySAncTzE", "", false),
     new Kata("Heian Shodan", "平安初段", "25 s", 21, "Friedvoller Geist, Stufe 1", svgs.ko, "Die erste der fünf Heian-Katas. Führt grundlegende Blöcke wie Age-Uke und Shuto-Uke ein und festigt die Basisstände.", "https://www.youtube.com/watch?v=kYmZ-pEnE7c", "https://www.youtube.com/watch?v=9S0ySAncTzE", "", false),
     new Kata("Heian Nidan", "平安二段", "25 s", 26, "Friedvoller Geist, Stufe 2", svgs.ko, "Führt den Seitenfußtritt (Yoko-Geri) und den Rückfaustschlag (Uraken) sowie fließende Rhythmuswechsel ein.", "https://www.youtube.com/watch?v=pS6m-A26y6w", "https://www.youtube.com/watch?v=XhZ7pX-WjWk", "", false),
     new Kata("Heian Sandan", "平安三段", "25 s", 20, "Friedvoller Geist, Stufe 3", svgs.tei, "Fokus auf den Reiterstand (Kiba-Dachi), Befreiungstechniken und die Körperdrehung (Tai-Sabaki) im Nahkampf.", "", "", "", false),
