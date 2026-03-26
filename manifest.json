@@ -7,21 +7,21 @@
 	"theme_color": "#0f172a",
 	"icons": [
 		{
-			"src": "https://muli242.github.io/KarateKataApp/img/Icon.png",
+			"src": "img/Icon.png",
 			"sizes": "640x640",
 			"type": "image/png"
 		}
 	],
 	"screenshots": [
 		{
-			"src": "https://muli242.github.io/KarateKataApp/img/Screenshot.png",
+			"src": "img/Screenshot.png",
 			"sizes": "517x1080",
 			"type": "image/png",
 			"form_factor": "wide",
 			"label": "Application"
 		},
-    {
-			"src": "https://muli242.github.io/KarateKataApp/img/Screenshot.png",
+		{
+			"src": "img/Screenshot.png",
 			"sizes": "517x1080",
 			"type": "image/png"
 		}
@@ -29,6 +29,6 @@
 	"background_color": "#0f172a",
 	"display": "fullscreen",
 	"orientation": "portrait",
-	"scope": "/",
-	"start_url": "https://muli242.github.io/KarateKataApp/index.html"
+	"scope": "./",
+	"start_url": "./index.html"
 }

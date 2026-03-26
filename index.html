@@ -1,89 +1,168 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Karate Kata App</title>
     <link rel="manifest" href="manifest.json">
-    
+
     <!-- Google Fonts for Modern Typography & Japanese Kanji -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Serif+JP:wght@400;700&display=swap"
+        rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="app-container">
-        
+
         <header>
-            <div class="title-wrapper">
-                <img src="img/shotokan_tiger.svg" alt="Shotokan Tiger" class="title-logo">
-                <h1 class="app-title">Kata Trainer</I></h1>
+            <div class="header-top">
+                <div class="title-wrapper">
+                    <img src="img/shotokan_tiger.svg" alt="Shotokan Tiger" class="title-logo">
+                    <h1 class="app-title">Kata Trainer</h1>
+                </div>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Menu">
+                    <div class="hamburger"></div>
+                </button>
+                <div style="width: 40px;"></div> <!-- Spacer for symmetry -->
             </div>
             <h2 class="app-subtitle">Übe täglich Kata</h2>
+        </header>
+
+        <!-- Navigation Overlay -->
+        <nav class="nav-overlay" id="nav-overlay">
+            <button class="nav-close" id="nav-close">&times;</button>
+            <ul class="nav-links">
+                <li><a href="#" data-view="view-trainer" class="nav-link active">Trainer</a></li>
+                <li><a href="#" id="open-settings" class="nav-link">Einstellungen</a></li>
+                <li><a href="#" data-view="view-about" class="nav-link">Über die App</a></li>
+            </ul>
+            <div class="nav-footer">
+                <p>Shotokan Karate Do</p>
+            </div>
+        </nav>
+
+        <main id="view-trainer" class="view">
             <div class="selector-container">
                 <select id="kata-selector" class="kata-selector">
                     <option value="" disabled selected>Wähle eine Kata...</option>
                 </select>
             </div>
-        </header>
 
-        <main class="card-container" id="touch-area">
-            <!-- Loading Indicator or Initial State -->
-            <div class="kata-card" id="kata-card" onclick="this.classList.toggle('flipped')">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <div class="card-glass-bg"></div>
-                        <div class="kata-content">
-                            <div class="kanji-display" id="kata-kanji">空手</div>
-                            <div class="name-display" id="kata-name">Bereit</div>
-                            <div class="meaning-display" id="kata-meaning">Tippe den Button oder Wische</div>
-                            
-                            <div class="stats-container">
-                                <div class="stat-box">
-                                    <span class="stat-label">Dauer</span>
-                                    <span class="stat-value" id="kata-length">--:--</span>
-                                </div>
-                                <div class="stat-divider"></div>
-                                <div class="stat-box">
-                                    <span class="stat-label">Moves</span>
-                                    <span class="stat-value" id="kata-movements">--</span>
-                                </div>
-                                <div class="stat-divider"></div>
-                                <div class="stat-box">
-                                    <span class="stat-label">Embusen</span>
-                                    <span class="stat-value" id="kata-embusen" style="width: 35px; height: 35px; line-height: 0;">--</span>
+            <div class="card-container" id="touch-area">
+                <div class="kata-card" id="kata-card" onclick="this.classList.toggle('flipped')">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="card-glass-bg"></div>
+                            <div class="kata-content">
+                                <div class="kanji-display" id="kata-kanji">空手</div>
+                                <div class="name-display" id="kata-name">Bereit</div>
+                                <div class="meaning-display" id="kata-meaning">Tippe den Button oder Wische</div>
+
+                                <div class="stats-container">
+                                    <div class="stat-box">
+                                        <span class="stat-label">Dauer</span>
+                                        <span class="stat-value" id="kata-length">--:--</span>
+                                    </div>
+                                    <div class="stat-divider"></div>
+                                    <div class="stat-box">
+                                        <span class="stat-label">Moves</span>
+                                        <span class="stat-value" id="kata-movements">--</span>
+                                    </div>
+                                    <div class="stat-divider"></div>
+                                    <div class="stat-box">
+                                        <span class="stat-label">Embusen</span>
+                                        <span class="stat-value" id="kata-embusen">--</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="card-back">
-                        <div class="card-glass-bg"></div>
-                        <div class="kata-content-back">
-                            <h3 class="back-title" id="kata-name-back">Kata</h3>
-                            <div style="width: 50px; height: 2px; background: var(--accent-color); margin: 0 auto 1.5rem auto;"></div>
-                            <p class="kata-description" id="kata-description">Zusätzliche Infos zur Kata erscheinen hier.</p>
-                            <span class="flip-hint">⟲ Antippen zum Zurückdrehen</span>
+                        <div class="card-back">
+                            <div class="card-glass-bg"></div>
+                            <div class="kata-content-back">
+                                <h3 class="back-title" id="kata-name-back">Kata</h3>
+                                <div
+                                    style="width: 50px; height: 2px; background: var(--accent-color); margin: 0 auto 1.5rem auto;">
+                                </div>
+                                <p class="kata-description" id="kata-description">Zusätzliche Infos zur Kata erscheinen
+                                    hier.</p>
+                                <span class="flip-hint">⟲ Antippen zum Zurückdrehen</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <div class="controls">
+                <button class="generate-btn" id="generate-btn">
+                    <span class="btn-text">Nächste Kata</span>
+                    <div class="btn-glow"></div>
+                </button>
+                <p class="swipe-hint">Oder nach links / rechts wischen</p>
+            </div>
         </main>
 
-        <div class="controls">
-            <button class="generate-btn" id="generate-btn">
-                <span class="btn-text">
-                    Nächste Kata
-                </span>
-                <div class="btn-glow"></div>
-            </button>
-            <p class="swipe-hint">Oder nach links / rechts wischen</p>
+        <section id="view-about" class="view hidden">
+            <div class="about-content">
+                <div class="about-glass">
+                    <h3>Über diese App</h3>
+                    <p>Dieser digitale Kata-Trainer soll Karateka dabei helfen, ihr Repertoire an Shotokan-Katas zu
+                        festigen und durch das Zufallsprinzip Abwechslung in das tägliche Training zu bringen.</p>
+
+                    <div class="about-divider"></div>
+
+                    <h4>Shotokan Karate</h4>
+                    <p>Shotokan ist einer der weltweit am weitesten verbreiteten Karatestile. Er wurde von Gichin
+                        Funakoshi (1868–1957) und seinem Sohn Gigo Funakoshi begründet.</p>
+                    <p>Die Katas im Shotokan zeichnen sich durch tiefe, kraftvolle Stände und lineare Techniken aus.
+                        Jede Kata hat ihren eigenen Charakter: von den friedvollen Heian-Formen bis hin zu den
+                        fortgeschrittenen Meisterkatas wie Unsu oder Kanku Dai.</p>
+
+                    <div class="about-divider"></div>
+
+                    <h4>Anleitung</h4>
+                    <ul>
+                        <li><strong>Nächste Kata:</strong> Klicke auf den Button oder wische auf der Karte nach
+                            links/rechts.</li>
+                        <li><strong>Details:</strong> Tippe auf die Karte, um sie zu drehen und Hintergrundinfos zu
+                            erhalten.</li>
+                        <li><strong>Filter:</strong> Über die Einstellungen kannst du festlegen, welche Katas im
+                            Zufallsgenerator erscheinen sollen.</li>
+                    </ul>
+
+                    <button class="back-to-trainer" data-view="view-trainer">Zurück zum Trainer</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Settings Modal -->
+        <div class="modal-overlay" id="settings-modal">
+            <div class="modal-content glass">
+                <div class="modal-header">
+                    <h3>Einstellungen</h3>
+                    <button class="modal-close" id="settings-close">&times;</button>
+                </div>
+                <p class="modal-subtitle">Wähle Katas für den Zufallsgenerator aus:</p>
+                <div class="settings-actions">
+                    <button id="select-all">Alle</button>
+                    <button id="deselect-all">Keine</button>
+                </div>
+                <div class="kata-filter-list" id="kata-filter-list">
+                    <!-- Dynamic Checklist -->
+                </div>
+                <button class="settings-save-btn" id="settings-save">Speichern & Schließen</button>
+            </div>
         </div>
 
     </div>
 
     <script src="script.js"></script>
 </body>
+
 </html>
