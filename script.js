@@ -275,6 +275,23 @@ DOM.navLinks.forEach(link => {
     });
 });
 
+// Flip card on click, but ignore when clicking video links
+DOM.card.addEventListener('click', (e) => {
+    if (e.target.closest('.video-link')) return; 
+    DOM.card.classList.toggle('flipped');
+});
+
+// Exit App
+document.getElementById('app-exit').addEventListener('click', (e) => {
+    e.preventDefault();
+    if (confirm("Möchtest du die App wirklich beenden?")) {
+        window.close();
+        setTimeout(() => {
+            alert("Vielen Dank für dein Training! Du kannst diesen Tab jetzt schließen.");
+        }, 300);
+    }
+});
+
 // Settings Modal
 DOM.openSettings.addEventListener('click', (e) => {
     e.preventDefault();
