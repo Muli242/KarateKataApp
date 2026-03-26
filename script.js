@@ -1,5 +1,5 @@
 class Kata {
-    constructor(name = "", kanji = "", length = "", movements = 0, meaning = "", embusen = "", info = "", urlDKV = "", urlJKA = "", ignore = false) {
+    constructor(name = "", kanji = "", length = "", movements = 0, meaning = "", embusen = "", info = "", urlDKV = "", urlJKA = "", urlPDF = "", ignore = false) {
         this.name = name;
         this.kanji = kanji;
         this.length = length;
@@ -10,6 +10,8 @@ class Kata {
         // Automated fallback to channel search if no specific URL is provided
         this.urlDKV = urlDKV || `https://www.youtube.com/results?search_query=site%3Ayoutube.com%2F%40BudocenterKaramitsos+${name.replace(/ /g, '+')}`;
         this.urlJKA = urlJKA || `https://www.youtube.com/results?search_query=site%3Ayoutube.com%2F%40japankarateassociation2049+${name.replace(/ /g, '+')}`;
+        // Standard PDF naming convention: pdf/Kata_Name.pdf
+        this.urlPDF = urlPDF || `pdf/${name.replace(/ /g, '_')}.pdf`;
         this.ignore = ignore;
     }
 }
@@ -24,33 +26,33 @@ const svgs = {
 };
 
 const katas = [
-    new Kata("Taikyoku Shodan", "太極初段", "25 s", 20, "Erste Ursache", svgs.ko, "Die Anfänger-Kata. Lehrt die absoluten Grundlagen: Gedan-Barai, Oi-Zuki und Zenkutsu-Dachi.", "https://www.youtube.com/watch?v=S8LqJ4u5G6E", "https://www.youtube.com/watch?v=9S0ySAncTzE", false),
-    new Kata("Heian Shodan", "平安初段", "25 s", 21, "Friedvoller Geist, Stufe 1", svgs.ko, "Die erste der fünf Heian-Katas. Führt grundlegende Blöcke wie Age-Uke und Shuto-Uke ein und festigt die Basisstände.", "https://www.youtube.com/watch?v=kYmZ-pEnE7c", "https://www.youtube.com/watch?v=9S0ySAncTzE", false),
-    new Kata("Heian Nidan", "平安二段", "25 s", 26, "Friedvoller Geist, Stufe 2", svgs.ko, "Führt den Seitenfußtritt (Yoko-Geri) und den Rückfaustschlag (Uraken) sowie fließende Rhythmuswechsel ein.", "https://www.youtube.com/watch?v=pS6m-A26y6w", "https://www.youtube.com/watch?v=XhZ7pX-WjWk", false),
-    new Kata("Heian Sandan", "平安三段", "25 s", 20, "Friedvoller Geist, Stufe 3", svgs.tei, "Fokus auf den Reiterstand (Kiba-Dachi), Befreiungstechniken und die Körperdrehung (Tai-Sabaki) im Nahkampf.", "", "", false),
-    new Kata("Heian Yondan", "平安四段", "30 s", 27, "Friedvoller Geist, Stufe 4", svgs.tsuchi, "Führt offene Hand-Techniken, Juji-Uke (Kreuzblock) und schnelle, dynamische Trittkombinationen wie Mae-Geri ein.", "", "", false),
-    new Kata("Heian Godan", "平安五段", "30 s", 23, "Friedvoller Geist, Stufe 5", svgs.tei, "Beinhaltet den Wasser-Sprung (Mizu-Nagare) und wechselt kontinuierlich zwischen äußerst tiefen und hohen Ständen.", "", "", false),
-    new Kata("Tekki Shodan", "鉄騎初段", "25 s", 29, "Eiserner Reiter, Stufe 1", svgs.ichi, "Wird komplett auf einer Linie im tiefen Kiba-Dachi ausgeführt. Simuliert den Kampf auf engem Raum z.B. an einer Wand.", "", "", false),
-    new Kata("Tekki Nidan", "鉄騎二段", "30 s", 24, "Eiserner Reiter, Stufe 2", svgs.ichi, "Die Fortsetzung von Tekki Shodan. Beinhaltet komplexe Abwehren und extrem schnelle Hebeltechniken aus dem sicheren Reiterstand.", "", "", false),
-    new Kata("Tekki Sandan", "鉄騎三段", "30 s", 36, "Eiserner Reiter, Stufe 3", svgs.ichi, "Die komplexeste der Tekki-Katas. Erfordert extremen Einsatz der Hüfte (Koshi) für die Kraftgenerierung auf kürzester Distanz.", "", "", false),
-    new Kata("Bassai Dai", "披塞大", "50 s", 42, "Die Festung stürmen, groß", svgs.tei, "Eine dynamische, immens kraftvolle Kata, die symbolisch den 'Sturm auf eine Festung' meistert. Beinhaltet extrem starke Wendungen.", "https://www.youtube.com/watch?v=E_NIm-P_v-U", "https://www.youtube.com/watch?v=G1u9R1g6A7s", false),
-    new Kata("Bassai Sho", "披塞小", "60 s", 28, "Die Festung stürmen, klein", svgs.tei, "Die kleinere, aber fließendere Schwester von Bassai Dai. Ausgeprägter Fokus auf Abwehr gegen Hebel- und lange Stockangriffe (Bo).", "", "", false),
-    new Kata("Kanku Dai", "観空大", "90 s", 65, "In den Himmel schauen, groß", svgs.tsuchi, "Die längste Standardkata und Ursprung der Heian-Formen. Beginnt symbolisch mit dem namensgebenden 'Blick in den Himmel'.", "https://www.youtube.com/watch?v=u6tK0944Fks", "https://www.youtube.com/watch?v=XhZ7pX-WjWk", false),
-    new Kata("Kanku Sho", "観空小", "50 s", 39, "In den Himmel schauen, klein", svgs.tsuchi, "Schneller und sprunggewaltiger als Kanku Dai. Zeichnet sich durch zwei spektakuläre Sprünge und einen tief verwurzelten Stand aus.", "", "", false),
-    new Kata("Enpi", "燕飛", "60 s", 37, "Flug der Schwalbe", svgs.tei, "Berühmt für ihre schnellen, leichtfüßigen Auf- und Abbewegungen, das tiefe Ausweichen und den markanten drehenden Sprung am Ende.", "https://www.youtube.com/watch?v=Yf1e5-V7-zI", "https://www.youtube.com/watch?v=2n6r4W9LpZ8", false),
-    new Kata("Jion", "慈恩", "60 s", 47, "Liebe und Güte (Tempel)", svgs.ko, "Eine sehr geradlinige, powervolle Kata ohne große Schnörkel. Der Fokus liegt ganz auf sauberen Basis-Schlägen und dem festen Zenkutsu-Dachi.", "https://www.youtube.com/watch?v=Z5-L5Xf6H1U", "https://www.youtube.com/watch?v=p1-b5S6v9W0", false),
-    new Kata("Hangetsu", "半月", "60 s", 41, "Halbmond", svgs.ju, "Einzige Kata, die extreme isometrische Ganzkörperspannung und tiefe Atmung im speziellen Hangetsu-Dachi-Stand (Mond-Stand) trainiert.", "", "", false),
-    new Kata("Jitte", "十手", "60 s", 26, "Zehn Hände", svgs.ju, "Bedeutet 'Zehn Hände' und soll gegen mehrere Angreifer wappnen. Beinhaltet Abwehren von Stöcken und den auffälligen Yama-Gamae-Doppelblock.", "", "", false),
-    new Kata("Gankaku", "岩鶴", "60 s", 42, "Kranich auf dem Felsen", svgs.ichi, "Trainiert exzellentes, ruhendes Gleichgewicht durch die vielfache einbeinige Kranich-Position (Tsuru-Ashi-Dachi) gefolgt von Yoko-Geri.", "", "", false),
-    new Kata("Nijushiho", "二十四步", "45 s", 34, "24 Schritte", svgs.ju, "Extrem weiche, fließende Bewegungen, die an fließendes Wasser erinnern, alternieren plötzlich mit sehr explosiven Stößen und Tritten.", "", "", false),
-    new Kata("Chinte", "珍手", "50 s", 33, "Seltene Hände", svgs.ju, "Nutzt ungewöhnliche Techniken wie Nakadaka-Ken (Mittelfingerknöchelschlag) und Nihon-Nukite auf Vitalpunkte und hat weiche Handgelenkbewegungen.", "", "", false),
-    new Kata("Sochin", "壯鎭", "45 s", 36, "Stärke und Ruhe", svgs.ju, "Der tiefe Fudo-Dachi (oder Sochin-Dachi) ist ständig präsent. Die Kata strahlt absolute Ruhe und fast steinernen, unerschütterlichen Stand aus.", "", "", false),
-    new Kata("Meikyo", "明鏡", "60 s", 34, "Heller Spiegel", svgs.ichi, "Beinhaltet Techniken, die sich symmetrisch wie in einem Spiegelbild aufbauen, sowie einen völlig einzigartigen Dreieckssprung (Sankaku-Tobi) nach vorne.", "", "", false),
-    new Kata("Unsu", "雲手", "60 s", 53, "Wolkenhände", svgs.ju, "Atemberaubende Dynamik: Beinhaltet Blitzschnelle Kreis-Blöcke (die Wolkenhände), Abwehr auf dem Boden liegend (Mawashi-Geri) sowie den legendären Sprung.", "", "", false),
-    new Kata("Wankan", "王冠", "50 s", 16, "Königskrone", svgs.tei, "Die kürzeste der Meister-Katas, verzichtet auf lange Wiederholungen. Höchste Konzentration der Kraft gepulst in sehr knappen Kombinationen.", "", "", false),
-    new Kata("Jiin", "慈陰", "30 s", 35, "Liebe und Schatten (Tempel)", svgs.tei, "Stammt wie Jion und Jitte aus derselben klösterlichen Tradition. Nutzt enorm viele wuchtige Fauststöße und reaktionsschnelle Schrittwechsel.", "", "", false),
-    new Kata("Gojushiho Dai", "五十四歩大", "90 s", 62, "54 Schritte, groß", svgs.ju, "Sehr anspruchsvolle, lange Form. Charakteristisch für weiche, wuchtige Speerhand-Techniken (Nukite) und die 'Löwenangriff'-Haltung.", "", "", false),
-    new Kata("Gojushiho Sho", "五十四歩小", "90 s", 65, "54 Schritte, klein", svgs.ju, "Gilt als filigraner und komplexer im Bewegungsfluss der Arme. Fordert perfekte Balance zwischen harter Kime und seidenweicher Körpermechanik.", "", "", false)
+    new Kata("Taikyoku Shodan", "太極初段", "25 s", 20, "Erste Ursache", svgs.ko, "Die Anfänger-Kata. Lehrt die absoluten Grundlagen: Gedan-Barai, Oi-Zuki und Zenkutsu-Dachi.", "https://www.youtube.com/watch?v=S8LqJ4u5G6E", "https://www.youtube.com/watch?v=9S0ySAncTzE", "", false),
+    new Kata("Heian Shodan", "平安初段", "25 s", 21, "Friedvoller Geist, Stufe 1", svgs.ko, "Die erste der fünf Heian-Katas. Führt grundlegende Blöcke wie Age-Uke und Shuto-Uke ein und festigt die Basisstände.", "https://www.youtube.com/watch?v=kYmZ-pEnE7c", "https://www.youtube.com/watch?v=9S0ySAncTzE", "", false),
+    new Kata("Heian Nidan", "平安二段", "25 s", 26, "Friedvoller Geist, Stufe 2", svgs.ko, "Führt den Seitenfußtritt (Yoko-Geri) und den Rückfaustschlag (Uraken) sowie fließende Rhythmuswechsel ein.", "https://www.youtube.com/watch?v=pS6m-A26y6w", "https://www.youtube.com/watch?v=XhZ7pX-WjWk", "", false),
+    new Kata("Heian Sandan", "平安三段", "25 s", 20, "Friedvoller Geist, Stufe 3", svgs.tei, "Fokus auf den Reiterstand (Kiba-Dachi), Befreiungstechniken und die Körperdrehung (Tai-Sabaki) im Nahkampf.", "", "", "", false),
+    new Kata("Heian Yondan", "平安四段", "30 s", 27, "Friedvoller Geist, Stufe 4", svgs.tsuchi, "Führt offene Hand-Techniken, Juji-Uke (Kreuzblock) und schnelle, dynamische Trittkombinationen wie Mae-Geri ein.", "", "", "", false),
+    new Kata("Heian Godan", "平安五段", "30 s", 23, "Friedvoller Geist, Stufe 5", svgs.tei, "Beinhaltet den Wasser-Sprung (Mizu-Nagare) und wechselt kontinuierlich zwischen äußerst tiefen und hohen Ständen.", "", "", "", false),
+    new Kata("Tekki Shodan", "鉄騎初段", "25 s", 29, "Eiserner Reiter, Stufe 1", svgs.ichi, "Wird komplett auf einer Linie im tiefen Kiba-Dachi ausgeführt. Simuliert den Kampf auf engem Raum z.B. an einer Wand.", "", "", "", false),
+    new Kata("Tekki Nidan", "鉄騎二段", "30 s", 24, "Eiserner Reiter, Stufe 2", svgs.ichi, "Die Fortsetzung von Tekki Shodan. Beinhaltet komplexe Abwehren und extrem schnelle Hebeltechniken aus dem sicheren Reiterstand.", "", "", "", false),
+    new Kata("Tekki Sandan", "鉄騎三段", "30 s", 36, "Eiserner Reiter, Stufe 3", svgs.ichi, "Die komplexeste der Tekki-Katas. Erfordert extremen Einsatz der Hüfte (Koshi) für die Kraftgenerierung auf kürzester Distanz.", "", "", "", false),
+    new Kata("Bassai Dai", "披塞大", "50 s", 42, "Die Festung stürmen, groß", svgs.tei, "Eine dynamische, immens kraftvolle Kata, die symbolisch den 'Sturm auf eine Festung' meistert. Beinhaltet extrem starke Wendungen.", "https://www.youtube.com/watch?v=E_NIm-P_v-U", "https://www.youtube.com/watch?v=G1u9R1g1A7s", "", false),
+    new Kata("Bassai Sho", "披塞小", "60 s", 28, "Die Festung stürmen, klein", svgs.tei, "Die kleinere, aber fließendere Schwester von Bassai Dai. Ausgeprägter Fokus auf Abwehr gegen Hebel- und lange Stockangriffe (Bo).", "", "", "", false),
+    new Kata("Kanku Dai", "観空大", "90 s", 65, "In den Himmel schauen, groß", svgs.tsuchi, "Die längste Standardkata und Ursprung der Heian-Formen. Beginnt symbolisch mit dem namensgebenden 'Blick in den Himmel'.", "https://www.youtube.com/watch?v=u6tK0944Fks", "https://www.youtube.com/watch?v=XhZ7pX-WjWk", "", false),
+    new Kata("Kanku Sho", "観空小", "50 s", 39, "In den Himmel schauen, klein", svgs.tsuchi, "Schneller und sprunggewaltiger als Kanku Dai. Zeichnet sich durch zwei spektakuläre Sprünge und einen tief verwurzelten Stand aus.", "", "", "", false),
+    new Kata("Enpi", "燕飛", "60 s", 37, "Flug der Schwalbe", svgs.tei, "Berühmt für ihre schnellen, leichtfüßigen Auf- und Abbewegungen, das tiefe Ausweichen und den markanten drehenden Sprung am Ende.", "https://www.youtube.com/watch?v=Yf1e5-V7-zI", "https://www.youtube.com/watch?v=2n6r4W9LpZ8", "", false),
+    new Kata("Jion", "慈恩", "60 s", 47, "Liebe und Güte (Tempel)", svgs.ko, "Eine sehr geradlinige, powervolle Kata ohne große Schnörkel. Der Fokus liegt ganz auf sauberen Basis-Schlägen und dem festen Zenkutsu-Dachi.", "https://www.youtube.com/watch?v=Z5-L5Xf6H1U", "https://www.youtube.com/watch?v=p1-b5S6v9W0", "", false),
+    new Kata("Hangetsu", "半月", "60 s", 41, "Halbmond", svgs.ju, "Einzige Kata, die extreme isometrische Ganzkörperspannung und tiefe Atmung im speziellen Hangetsu-Dachi-Stand (Mond-Stand) trainiert.", "", "", "", false),
+    new Kata("Jitte", "十手", "60 s", 26, "Zehn Hände", svgs.ju, "Bedeutet 'Zehn Hände' und soll gegen mehrere Angreifer wappnen. Beinhaltet Abwehren von Stöcken und den auffälligen Yama-Gamae-Doppelblock.", "", "", "", false),
+    new Kata("Gankaku", "岩鶴", "60 s", 42, "Kranich auf dem Felsen", svgs.ichi, "Trainiert exzellentes, ruhendes Gleichgewicht durch die vielfache einbeinige Kranich-Position (Tsuru-Ashi-Dachi) gefolgt von Yoko-Geri.", "", "", "", false),
+    new Kata("Nijushiho", "二十四步", "45 s", 34, "24 Schritte", svgs.ju, "Extrem weiche, fließende Bewegungen, die an fließendes Wasser erinnern, alternieren plötzlich mit sehr explosiven Stößen und Tritten.", "", "", "", false),
+    new Kata("Chinte", "珍手", "50 s", 33, "Seltene Hände", svgs.ju, "Nutzt ungewöhnliche Techniken wie Nakadaka-Ken (Mittelfingerknöchelschlag) und Nihon-Nukite auf Vitalpunkte und hat weiche Handgelenkbewegungen.", "", "", "", false),
+    new Kata("Sochin", "壯鎭", "45 s", 36, "Stärke und Ruhe", svgs.ju, "Der tiefe Fudo-Dachi (oder Sochin-Dachi) ist ständig präsent. Die Kata strahlt absolute Ruhe und fast steinernen, unerschütterlichen Stand aus.", "https://www.youtube.com/watch?v=2DfLawL49xM", "", "", false),
+    new Kata("Meikyo", "明鏡", "60 s", 34, "Heller Spiegel", svgs.ichi, "Beinhaltet Techniken, die sich symmetrisch wie in einem Spiegelbild aufbauen, sowie einen völlig einzigartigen Dreieckssprung (Sankaku-Tobi) nach vorne.", "", "", "", false),
+    new Kata("Unsu", "雲手", "60 s", 53, "Wolkenhände", svgs.ju, "Atemberaubende Dynamik: Beinhaltet Blitzschnelle Kreis-Blöcke (die Wolkenhände), Abwehr auf dem Boden liegend (Mawashi-Geri) sowie den legendären Sprung.", "", "", "", false),
+    new Kata("Wankan", "王冠", "50 s", 16, "Königskrone", svgs.tei, "Die kürzeste der Meister-Katas, verzichtet auf lange Wiederholungen. Höchste Konzentration der Kraft gepulst in sehr knappen Kombinationen.", "", "", "", false),
+    new Kata("Jiin", "慈陰", "30 s", 35, "Liebe und Schatten (Tempel)", svgs.tei, "Stammt like Jion und Jitte aus derselben klösterlichen Tradition. Nutzt enorm viele wuchtige Fauststöße und reaktionsschnelle Schrittwechsel.", "", "", "", false),
+    new Kata("Gojushiho Dai", "五十四歩大", "90 s", 62, "54 Schritte, groß", svgs.ju, "Sehr anspruchsvolle, lange Form. Charakteristisch für weiche, wuchtige Speerhand-Techniken (Nukite) und die 'Löwenangriff'-Haltung.", "", "", "", false),
+    new Kata("Gojushiho Sho", "五十四歩小", "90 s", 65, "54 Schritte, klein", svgs.ju, "Gilt als filigraner und komplexer im Bewegungsfluss der Arme. Fordert perfekte Balance zwischen harter Kime und seidenweicher Körpermechanik.", "", "", "", false)
 ];
 
 const DOM = {
@@ -68,6 +70,7 @@ const DOM = {
     selector: document.getElementById('kata-selector'),
     videoDKV: document.getElementById('video-dkv'),
     videoJKA: document.getElementById('video-jka'),
+    pdfLink: document.getElementById('kata-pdf'),
 
     // New Elements
     menuToggle: document.getElementById('menu-toggle'),
@@ -211,6 +214,7 @@ function updateDOMWithKata(kata) {
     DOM.embusen.innerHTML = kata.embusen;
     DOM.videoDKV.href = kata.urlDKV;
     DOM.videoJKA.href = kata.urlJKA;
+    DOM.pdfLink.href = kata.urlPDF;
 }
 
 function generateKata(direction = 'pop', specificIndex = null) {
@@ -277,7 +281,7 @@ DOM.navLinks.forEach(link => {
 
 // Flip card on click, but ignore when clicking video links
 DOM.card.addEventListener('click', (e) => {
-    if (e.target.closest('.video-link')) return; 
+    if (e.target.closest('.video-link')) return;
     DOM.card.classList.toggle('flipped');
 });
 

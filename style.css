@@ -792,6 +792,15 @@ header {
     font-size: 0.8rem;
 }
 
+.pdf-link::before {
+    content: '📄'; /* Document icon */
+}
+
+.pdf-link {
+    background: rgba(239, 68, 68, 0.05); /* Slight red tint */
+    border-color: rgba(239, 68, 68, 0.2);
+}
+
 .video-link:hover {
     background: var(--accent-color);
     border-color: var(--accent-color);
