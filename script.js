@@ -1,58 +1,4 @@
-class Kata {
-    constructor(name = "", kanji = "", length = "", movements = 0, meaning = "", embusen = "", info = "", urlDKV = "", urlJKA = "", urlPDF = "", ignore = false) {
-        this.name = name;
-        this.kanji = kanji;
-        this.length = length;
-        this.movements = movements;
-        this.meaning = meaning;
-        this.embusen = embusen;
-        this.info = info;
-        // Automated fallback to channel search if no specific URL is provided
-        this.urlDKV = urlDKV || `https://www.youtube.com/results?search_query=site%3Ayoutube.com%2F%40BudocenterKaramitsos+${name.replace(/ /g, '+')}`;
-        this.urlJKA = urlJKA || `https://www.youtube.com/results?search_query=site%3Ayoutube.com%2F%40japankarateassociation2049+${name.replace(/ /g, '+')}`;
-        // Standard PDF naming convention: pdf/Kata_Name.pdf
-        this.urlPDF = urlPDF || `pdf/${name.replace(/ /g, '_')}.pdf`;
-        this.ignore = ignore;
-    }
-}
-
-const svgs = {
-    ichi: `<svg viewBox="0 0 100 100" width="68%" height="68%"><line x1="10" y1="50" x2="90" y2="50" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><circle cx="50" cy="50" r="5" fill="currentColor"/></svg>`,
-    tei: `<svg viewBox="0 0 100 100" width="68%" height="68%"><line x1="20" y1="30" x2="80" y2="30" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><line x1="50" y1="30" x2="50" y2="80" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><circle cx="50" cy="80" r="5" fill="currentColor"/></svg>`,
-    ju: `<svg viewBox="0 0 100 100" width="68%" height="68%"><line x1="20" y1="50" x2="80" y2="50" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><line x1="50" y1="20" x2="50" y2="80" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><circle cx="50" cy="50" r="5" fill="currentColor"/></svg>`,
-    ko: `<svg viewBox="0 0 100 100" width="68%" height="68%"><line x1="20" y1="20" x2="80" y2="20" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><line x1="50" y1="20" x2="50" y2="80" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><line x1="20" y1="80" x2="80" y2="80" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><circle cx="50" cy="80" r="5" fill="currentColor"/></svg>`,
-    tsuchi: `<svg viewBox="0 0 100 100" width="68%" height="68%"><line x1="20" y1="80" x2="80" y2="80" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><line x1="50" y1="20" x2="50" y2="80" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><line x1="30" y1="50" x2="70" y2="50" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><circle cx="50" cy="80" r="5" fill="currentColor"/></svg>`
-};
-
-const katas = [
-    new Kata("Taikyoku Shodan", "太極初段", "25 s", 20, "Erste Ursache", svgs.ko, "Die Anfänger-Kata. Lehrt die absoluten Grundlagen: Gedan-Barai, Oi-Zuki und Zenkutsu-Dachi.", "https://www.youtube.com/watch?v=S8LqJ4u5G6E", "", "", false),
-    new Kata("Heian Shodan", "平安初段", "25 s", 21, "Friedvoller Geist, Stufe 1", svgs.ko, "Die erste der fünf Heian-Katas. Führt grundlegende Blöcke wie Age-Uke und Shuto-Uke ein und festigt die Basisstände.", "https://www.youtube.com/watch?v=fMJmGAxlIi0", "", "", false),
-    new Kata("Heian Nidan", "平安二段", "25 s", 26, "Friedvoller Geist, Stufe 2", svgs.ko, "Führt den Seitenfußtritt (Yoko-Geri) und den Rückfaustschlag (Uraken) sowie fließende Rhythmuswechsel ein.", "https://www.youtube.com/watch?v=t4OwIAuIs6c", "", "", false),
-    new Kata("Heian Sandan", "平安三段", "25 s", 20, "Friedvoller Geist, Stufe 3", svgs.tei, "Fokus auf den Reiterstand (Kiba-Dachi), Befreiungstechniken und die Körperdrehung (Tai-Sabaki) im Nahkampf.", "https://www.youtube.com/watch?v=TLbcsR72VKY", "", "", false),
-    new Kata("Heian Yondan", "平安四段", "30 s", 27, "Friedvoller Geist, Stufe 4", svgs.tsuchi, "Führt offene Hand-Techniken, Juji-Uke (Kreuzblock) und schnelle, dynamische Trittkombinationen wie Mae-Geri ein.", "https://www.youtube.com/watch?v=8or9gAlUgbc", "", "", false),
-    new Kata("Heian Godan", "平安五段", "30 s", 23, "Friedvoller Geist, Stufe 5", svgs.tei, "Beinhaltet den Wasser-Sprung (Mizu-Nagare) und wechselt kontinuierlich zwischen äußerst tiefen und hohen Ständen.", "https://www.youtube.com/watch?v=VUwCnGTIvr0", "", "", false),
-    new Kata("Tekki Shodan", "鉄騎初段", "25 s", 29, "Eiserner Reiter, Stufe 1", svgs.ichi, "Wird komplett auf einer Linie im tiefen Kiba-Dachi ausgeführt. Simuliert den Kampf auf engem Raum z.B. an einer Wand.", "https://www.youtube.com/watch?v=TUFzr8XjXjY", "", "", false),
-    new Kata("Tekki Nidan", "鉄騎二段", "30 s", 24, "Eiserner Reiter, Stufe 2", svgs.ichi, "Die Fortsetzung von Tekki Shodan. Beinhaltet komplexe Abwehren und extrem schnelle Hebeltechniken aus dem sicheren Reiterstand.", "https://www.youtube.com/watch?v=nVSgKz6y4rs", "", "", false),
-    new Kata("Tekki Sandan", "鉄騎三段", "30 s", 36, "Eiserner Reiter, Stufe 3", svgs.ichi, "Die komplexeste der Tekki-Katas. Erfordert extremen Einsatz der Hüfte (Koshi) für die Kraftgenerierung auf kürzester Distanz.", "", "https://www.youtube.com/watch?v=i0z6mdJhdrY", "", false),
-    new Kata("Bassai Dai", "披塞大", "50 s", 42, "Die Festung stürmen, groß", svgs.tei, "Eine dynamische, immens kraftvolle Kata, die symbolisch den 'Sturm auf eine Festung' meistert. Beinhaltet extrem starke Wendungen.", "https://www.youtube.com/watch?v=a6h0NGv3x4Y", "", "", false),
-    new Kata("Bassai Sho", "披塞小", "60 s", 28, "Die Festung stürmen, klein", svgs.tei, "Die kleinere, aber fließendere Schwester von Bassai Dai. Ausgeprägter Fokus auf Abwehr gegen Hebel- und lange Stockangriffe (Bo).", "https://www.youtube.com/watch?v=zPxDs8iIeNI", "", "", false),
-    new Kata("Kanku Dai", "観空大", "90 s", 65, "In den Himmel schauen, groß", svgs.tsuchi, "Die längste Standardkata und Ursprung der Heian-Formen. Beginnt symbolisch mit dem namensgebenden 'Blick in den Himmel'.", "https://www.youtube.com/watch?v=hKPUOfgC2uI", "", "", false),
-    new Kata("Kanku Sho", "観空小", "50 s", 39, "In den Himmel schauen, klein", svgs.tsuchi, "Schneller und sprunggewaltiger als Kanku Dai. Zeichnet sich durch zwei spektakuläre Sprünge und einen tief verwurzelten Stand aus.", "https://www.youtube.com/watch?v=C5eUUoPtSHo", "", "", false),
-    new Kata("Empi", "燕飛", "60 s", 37, "Flug der Schwalbe", svgs.tei, "Berühmt für ihre schnellen, leichtfüßigen Auf- und Abbewegungen, das tiefe Ausweichen und den markanten drehenden Sprung am Ende.", "", "", "", false),
-    new Kata("Jion", "慈恩", "60 s", 47, "Liebe und Güte (Tempel)", svgs.ko, "Eine sehr geradlinige, powervolle Kata ohne große Schnörkel. Der Fokus liegt ganz auf sauberen Basis-Schlägen und dem festen Zenkutsu-Dachi.", "", "", "", false),
-    new Kata("Hangetsu", "半月", "60 s", 41, "Halbmond", svgs.ju, "Einzige Kata, die extreme isometrische Ganzkörperspannung und tiefe Atmung im speziellen Hangetsu-Dachi-Stand (Mond-Stand) trainiert.", "", "", "", false),
-    new Kata("Jitte", "十手", "60 s", 26, "Zehn Hände", svgs.ju, "Bedeutet 'Zehn Hände' und soll gegen mehrere Angreifer wappnen. Beinhaltet Abwehren von Stöcken und den auffälligen Yama-Gamae-Doppelblock.", "", "", "", false),
-    new Kata("Gankaku", "岩鶴", "60 s", 42, "Kranich auf dem Felsen", svgs.ichi, "Trainiert exzellentes, ruhendes Gleichgewicht durch die vielfache einbeinige Kranich-Position (Tsuru-Ashi-Dachi) gefolgt von Yoko-Geri.", "", "", "", false),
-    new Kata("Nijushiho", "二十四步", "45 s", 34, "24 Schritte", svgs.ju, "Extrem weiche, fließende Bewegungen, die an fließendes Wasser erinnern, alternieren plötzlich mit sehr explosiven Stößen und Tritten.", "", "", "", false),
-    new Kata("Chinte", "珍手", "50 s", 33, "Seltene Hände", svgs.ju, "Nutzt ungewöhnliche Techniken wie Nakadaka-Ken (Mittelfingerknöchelschlag) und Nihon-Nukite auf Vitalpunkte und hat weiche Handgelenkbewegungen.", "", "", "", false),
-    new Kata("Sochin", "壯鎭", "45 s", 36, "Stärke und Ruhe", svgs.ju, "Der tiefe Fudo-Dachi (oder Sochin-Dachi) ist ständig präsent. Die Kata strahlt absolute Ruhe und fast steinernen, unerschütterlichen Stand aus.", "https://www.youtube.com/watch?v=2DfLawL49xM", "", "", false),
-    new Kata("Meikyo", "明鏡", "60 s", 34, "Heller Spiegel", svgs.ichi, "Beinhaltet Techniken, die sich symmetrisch wie in einem Spiegelbild aufbauen, sowie einen völlig einzigartigen Dreieckssprung (Sankaku-Tobi) nach vorne.", "", "", "", false),
-    new Kata("Unsu", "雲手", "60 s", 53, "Wolkenhände", svgs.ju, "Atemberaubende Dynamik: Beinhaltet Blitzschnelle Kreis-Blöcke (die Wolkenhände), Abwehr auf dem Boden liegend (Mawashi-Geri) sowie den legendären Sprung.", "", "", "", false),
-    new Kata("Wankan", "王冠", "50 s", 16, "Königskrone", svgs.tei, "Die kürzeste der Meister-Katas, verzichtet auf lange Wiederholungen. Höchste Konzentration der Kraft gepulst in sehr knappen Kombinationen.", "", "", "", false),
-    new Kata("Jiin", "慈陰", "30 s", 35, "Liebe und Schatten (Tempel)", svgs.tei, "Stammt like Jion und Jitte aus derselben klösterlichen Tradition. Nutzt enorm viele wuchtige Fauststöße und reaktionsschnelle Schrittwechsel.", "", "", "", false),
-    new Kata("Gojushiho Dai", "五十四歩大", "90 s", 62, "54 Schritte, groß", svgs.ju, "Sehr anspruchsvolle, lange Form. Charakteristisch für weiche, wuchtige Speerhand-Techniken (Nukite) und die 'Löwenangriff'-Haltung.", "", "", "", false),
-    new Kata("Gojushiho Sho", "五十四歩小", "90 s", 65, "54 Schritte, klein", svgs.ju, "Gilt als filigraner und komplexer im Bewegungsfluss der Arme. Fordert perfekte Balance zwischen harter Kime und seidenweicher Körpermechanik.", "", "", "", false)
-];
+let katas = [];
 
 const DOM = {
     card: document.getElementById('kata-card'),
@@ -166,13 +112,15 @@ function populateFilterList() {
 
 // --- Core App Logic ---
 
-// Populate selector dropdown
-katas.forEach((kata, index) => {
-    const option = document.createElement('option');
-    option.value = index;
-    option.textContent = kata.name;
-    DOM.selector.appendChild(option);
-});
+function populateSelector() {
+    DOM.selector.innerHTML = '<option value="" disabled selected>Kata wählen...</option>';
+    katas.forEach((kata, index) => {
+        const option = document.createElement('option');
+        option.value = index;
+        option.textContent = kata.name;
+        DOM.selector.appendChild(option);
+    });
+}
 
 let currentKataIndex = -1;
 let isAnimating = false;
@@ -351,8 +299,44 @@ window.addEventListener('load', () => {
     }
 });
 
-// Init
-loadPreferences();
-resetUnshownKatas();
-setTimeout(() => generateKata('pop'), 500);
+// --- Initialization ---
+
+async function init() {
+    try {
+        // KATA_DATA is loaded from katas.js in index.html
+        if (typeof KATA_DATA === 'undefined') {
+            throw new Error('Kata-Daten konnten nicht gefunden werden. Bitte stelle sicher, dass katas.js korrekt geladen wurde.');
+        }
+        
+        // Convert data objects to Kata instances
+        katas = KATA_DATA.map(item => new Kata(
+            item.name,
+            item.kanji,
+            item.length,
+            item.movements,
+            item.meaning,
+            svgs[item.embusen] || "", // Map SVG key to actual SVG string
+            item.info,
+            item.urlDKV,
+            item.urlJKA,
+            item.urlPDF,
+            item.ignore
+        ));
+
+        // Start App logic
+        loadPreferences();
+        populateSelector();
+        resetUnshownKatas();
+        
+        // Show first kata after a small delay for aesthetic effect
+        setTimeout(() => generateKata('pop'), 500);
+
+        console.log("App initialized with", katas.length, "katas.");
+    } catch (error) {
+        console.error("Initialization failed:", error);
+        alert("Fehler beim Starten der App.\n\nDetails: " + error.message);
+    }
+}
+
+init();
 

@@ -1,9 +1,10 @@
-const CACHE_NAME = 'karate-kata-v1';
+const CACHE_NAME = 'karate-kata-v2';
 const ASSETS = [
     './',
     './index.html',
     './style.css',
     './script.js',
+    './katas.json',
     './manifest.json',
     './img/shotokan_tiger.svg'
 ];
