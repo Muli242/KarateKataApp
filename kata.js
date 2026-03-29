@@ -25,7 +25,7 @@ const KATA_DATA = [
         "meaning": "Erste Ursache",
         "embusen": "ko",
         "info": "Die Anfänger-Kata. Lehrt die absoluten Grundlagen: Gedan-Barai, Oi-Zuki und Zenkutsu-Dachi.",
-        "urlDKV": "https://www.youtube.com/watch?v=S8LqJ4u5G6E",
+        "urlDKV": "https://www.youtube.com/watch?v=QPiI6DTX0uk",
         "urlJKA": "",
         "urlPDF": "",
         "ignore": false
@@ -52,7 +52,7 @@ const KATA_DATA = [
         "embusen": "ko",
         "info": "Führt den Seitenfußtritt (Yoko-Geri) und den Rückfaustschlag (Uraken) sowie fließende Rhythmuswechsel ein.",
         "urlDKV": "https://www.youtube.com/watch?v=t4OwIAuIs6c",
-        "urlJKA": "",
+        "urlJKA": "https://www.youtube.com/watch?v=XrSAydBY_Ps",
         "urlPDF": "",
         "ignore": false
     },
@@ -65,7 +65,7 @@ const KATA_DATA = [
         "embusen": "tei",
         "info": "Fokus auf den Reiterstand (Kiba-Dachi), Befreiungstechniken und die Körperdrehung (Tai-Sabaki) im Nahkampf.",
         "urlDKV": "https://www.youtube.com/watch?v=TLbcsR72VKY",
-        "urlJKA": "",
+        "urlJKA": "https://www.youtube.com/watch?v=eS31R_27SIQ",
         "urlPDF": "",
         "ignore": false
     },
@@ -78,7 +78,7 @@ const KATA_DATA = [
         "embusen": "tsuchi",
         "info": "Führt offene Hand-Techniken, Juji-Uke (Kreuzblock) und schnelle, dynamische Trittkombinationen wie Mae-Geri ein.",
         "urlDKV": "https://www.youtube.com/watch?v=8or9gAlUgbc",
-        "urlJKA": "",
+        "urlJKA": "https://www.youtube.com/watch?v=P8T6P8XT_MQ",
         "urlPDF": "",
         "ignore": false
     },
@@ -117,7 +117,7 @@ const KATA_DATA = [
         "embusen": "ichi",
         "info": "Die Fortsetzung von Tekki Shodan. Beinhaltet komplexe Abwehren und extrem schnelle Hebeltechniken aus dem sicheren Reiterstand.",
         "urlDKV": "https://www.youtube.com/watch?v=nVSgKz6y4rs",
-        "urlJKA": "",
+        "urlJKA": "https://www.youtube.com/watch?v=yq4_P6Gly4k",
         "urlPDF": "",
         "ignore": false
     },
@@ -131,7 +131,7 @@ const KATA_DATA = [
         "info": "Die komplexeste der Tekki-Katas. Erfordert extremen Einsatz der Hüfte (Koshi) für die Kraftgenerierung auf kürzester Distanz.",
         "urlDKV": "",
         "urlJKA": "https://www.youtube.com/watch?v=i0z6mdJhdrY",
-        "urlPDF": "",
+        "urlPDF": "https://www.youtube.com/watch?v=8vd7zsCfTz0",
         "ignore": false
     },
     {
@@ -194,7 +194,7 @@ const KATA_DATA = [
         "meaning": "Flug der Schwalbe",
         "embusen": "tei",
         "info": "Berühmt für ihre schnellen, leichtfüßigen Auf- und Abbewegungen, das tiefe Ausweichen und den markanten drehenden Sprung am Ende.",
-        "urlDKV": "",
+        "urlDKV": "https://www.youtube.com/watch?v=0pZ4A1zkSJ0",
         "urlJKA": "",
         "urlPDF": "",
         "ignore": false
@@ -207,7 +207,7 @@ const KATA_DATA = [
         "meaning": "Liebe und Güte (Tempel)",
         "embusen": "ko",
         "info": "Eine sehr geradlinige, powervolle Kata ohne große Schnörkel. Der Fokus liegt ganz auf sauberen Basis-Schlägen und dem festen Zenkutsu-Dachi.",
-        "urlDKV": "",
+        "urlDKV": "https://www.youtube.com/watch?v=mRV_Dwg7LaI",
         "urlJKA": "",
         "urlPDF": "",
         "ignore": false
@@ -220,7 +220,7 @@ const KATA_DATA = [
         "meaning": "Halbmond",
         "embusen": "ju",
         "info": "Einzige Kata, die extreme isometrische Ganzkörperspannung und tiefe Atmung im speziellen Hangetsu-Dachi-Stand (Mond-Stand) trainiert.",
-        "urlDKV": "",
+        "urlDKV": "https://www.youtube.com/watch?v=mfp9FX2Km2g",
         "urlJKA": "",
         "urlPDF": "",
         "ignore": false
@@ -233,7 +233,7 @@ const KATA_DATA = [
         "meaning": "Zehn Hände",
         "embusen": "ju",
         "info": "Bedeutet 'Zehn Hände' und soll gegen mehrere Angreifer wappnen. Beinhaltet Abwehren von Stöcken und den auffälligen Yama-Gamae-Doppelblock.",
-        "urlDKV": "",
+        "urlDKV": "https://www.youtube.com/watch?v=bDZKg4dEdOk",
         "urlJKA": "",
         "urlPDF": "",
         "ignore": false
@@ -246,7 +246,7 @@ const KATA_DATA = [
         "meaning": "Kranich auf dem Felsen",
         "embusen": "ichi",
         "info": "Trainiert exzellentes, ruhendes Gleichgewicht durch die vielfache einbeinige Kranich-Position (Tsuru-Ashi-Dachi) gefolgt von Yoko-Geri.",
-        "urlDKV": "",
+        "urlDKV": "https://www.youtube.com/watch?v=i7wJpUdVg1I",
         "urlJKA": "",
         "urlPDF": "",
         "ignore": false
@@ -259,7 +259,7 @@ const KATA_DATA = [
         "meaning": "24 Schritte",
         "embusen": "ju",
         "info": "Extrem weiche, fließende Bewegungen, die an fließendes Wasser erinnern, alternieren plötzlich mit sehr explosiven Stößen und Tritten.",
-        "urlDKV": "",
+        "urlDKV": "https://www.youtube.com/watch?v=A0jzdielAuw",
         "urlJKA": "",
         "urlPDF": "",
         "ignore": false
@@ -272,7 +272,7 @@ const KATA_DATA = [
         "meaning": "Seltene Hände",
         "embusen": "ju",
         "info": "Nutzt ungewöhnliche Techniken wie Nakadaka-Ken (Mittelfingerknöchelschlag) und Nihon-Nukite auf Vitalpunkte und hat weiche Handgelenkbewegungen.",
-        "urlDKV": "",
+        "urlDKV": "https://www.youtube.com/watch?v=s-Zysg-xke0",
         "urlJKA": "",
         "urlPDF": "",
         "ignore": false
@@ -298,7 +298,7 @@ const KATA_DATA = [
         "meaning": "Heller Spiegel",
         "embusen": "ichi",
         "info": "Beinhaltet Techniken, die sich symmetrisch wie in einem Spiegelbild aufbauen, sowie einen völlig einzigartigen Dreieckssprung (Sankaku-Tobi) nach vorne.",
-        "urlDKV": "",
+        "urlDKV": "https://www.youtube.com/watch?v=ms1-4Y8hhAU",
         "urlJKA": "",
         "urlPDF": "",
         "ignore": false
@@ -311,7 +311,7 @@ const KATA_DATA = [
         "meaning": "Wolkenhände",
         "embusen": "ju",
         "info": "Atemberaubende Dynamik: Beinhaltet Blitzschnelle Kreis-Blöcke (die Wolkenhände), Abwehr auf dem Boden liegend (Mawashi-Geri) sowie den legendären Sprung.",
-        "urlDKV": "",
+        "urlDKV": "https://www.youtube.com/watch?v=igFixyAwkGU",
         "urlJKA": "",
         "urlPDF": "",
         "ignore": false
@@ -324,7 +324,7 @@ const KATA_DATA = [
         "meaning": "Königskrone",
         "embusen": "tei",
         "info": "Die kürzeste der Meister-Katas, verzichtet auf lange Wiederholungen. Höchste Konzentration der Kraft gepulst in sehr knappen Kombinationen.",
-        "urlDKV": "",
+        "urlDKV": "https://www.youtube.com/watch?v=ZOdR4r2dyak",
         "urlJKA": "",
         "urlPDF": "",
         "ignore": false
@@ -337,7 +337,7 @@ const KATA_DATA = [
         "meaning": "Liebe und Schatten (Tempel)",
         "embusen": "tei",
         "info": "Stammt like Jion und Jitte aus derselben klösterlichen Tradition. Nutzt enorm viele wuchtige Fauststöße und reaktionsschnelle Schrittwechsel.",
-        "urlDKV": "",
+        "urlDKV": "https://www.youtube.com/watch?v=9KxsKhad0uk",
         "urlJKA": "",
         "urlPDF": "",
         "ignore": false
@@ -350,7 +350,7 @@ const KATA_DATA = [
         "meaning": "54 Schritte, groß",
         "embusen": "ju",
         "info": "Sehr anspruchsvolle, lange Form. Charakteristisch für weiche, wuchtige Speerhand-Techniken (Nukite) und die 'Löwenangriff'-Haltung.",
-        "urlDKV": "",
+        "urlDKV": "https://www.youtube.com/watch?v=Sz0RSqZSleQ",
         "urlJKA": "",
         "urlPDF": "",
         "ignore": false
@@ -363,7 +363,7 @@ const KATA_DATA = [
         "meaning": "54 Schritte, klein",
         "embusen": "ju",
         "info": "Gilt als filigraner und komplexer im Bewegungsfluss der Arme. Fordert perfekte Balance zwischen harter Kime und seidenweicher Körpermechanik.",
-        "urlDKV": "",
+        "urlDKV": "https://www.youtube.com/watch?v=4npUDcReyT8",
         "urlJKA": "",
         "urlPDF": "",
         "ignore": false
