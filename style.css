@@ -801,6 +801,11 @@ header {
     border-color: rgba(239, 68, 68, 0.2);
 }
 
+.pdf-link:hover {
+    background: rgba(239, 68, 68, 0.2);
+    border-color: var(--accent-color);
+}
+
 .video-link:hover {
     background: var(--accent-color);
     border-color: var(--accent-color);
@@ -823,4 +828,18 @@ body {
 
 .app-container {
     max-height: 100vh;
+}
+
+.month-display {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    letter-spacing: 1px;
+}
+
+.version-info {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 1.5rem;
 }

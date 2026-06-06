@@ -38,6 +38,7 @@
             <button class="nav-close" id="nav-close">&times;</button>
             <ul class="nav-links">
                 <li><a href="#" data-view="view-trainer" class="nav-link active">Trainer</a></li>
+                <li><a href="#" data-view="view-month" class="nav-link">Kata des Monats</a></li>
                 <li><a href="#" id="open-settings" class="nav-link">Einstellungen</a></li>
                 <li><a href="#" data-view="view-about" class="nav-link">Über die App</a></li>
                 <li><a href="#" id="app-exit" class="nav-link">App beenden</a></li>
@@ -121,6 +122,31 @@
             </div>
         </main>
 
+        <section id="view-month" class="view hidden">
+            <div class="about-content">
+                <div class="about-glass">
+                    <h3>Kata des Monats</h3>
+                    <p class="month-display" id="current-month-display">Monat: --</p>
+                    
+                    <div class="selector-container">                        
+                        <select id="month-kata-selector" class="kata-selector">
+                            <option value="" disabled selected>Wähle eine Kata...</option>
+                        </select>
+                    </div>
+
+                    <div class="selected-kata-display" id="selected-kata-month-box" style="margin-top: 2rem; text-align: center; display: none;">
+                        <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; opacity: 0.6;">Aktuelle Auswahl</span>
+                        <h4 id="selected-kata-month-name" style="font-size: 1.8rem; margin: 0.5rem 0; color: var(--accent-color); font-family: 'Noto Serif JP', serif;">--</h4>
+                    </div>
+
+                    <div class="about-divider"></div>
+                    <p style="font-size: 0.9rem; opacity: 0.7; font-style: italic;">Die Kata des Monats hilft dir dabei, dich einen ganzen Monat lang intensiv auf eine bestimmte Form zu konzentrieren.</p>
+
+                    <button class="back-to-trainer" data-view="view-trainer">Zurück zum Trainer</button>
+                </div>
+            </div>
+        </section>
+
         <section id="view-about" class="view hidden">
             <div class="about-content">
                 <div class="about-glass">
@@ -150,6 +176,10 @@
                     </ul>
 
                     <button class="back-to-trainer" data-view="view-trainer">Zurück zum Trainer</button>
+                    
+                    <div class="version-info" style="margin-top: 2rem; text-align: center; font-size: 0.8rem; opacity: 0.5;">
+                        Version <span id="app-version">1.0.0</span>
+                    </div>
                 </div>
             </div>
         </section>

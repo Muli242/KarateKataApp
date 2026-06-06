@@ -1,3 +1,4 @@
+const APP_VERSION = "1.1.0";
 let katas = [];
 
 const DOM = {
@@ -30,7 +31,14 @@ const DOM = {
     settingsSave: document.getElementById('settings-save'),
     filterList: document.getElementById('kata-filter-list'),
     selectAllBtn: document.getElementById('select-all'),
-    deselectAllBtn: document.getElementById('deselect-all')
+    deselectAllBtn: document.getElementById('deselect-all'),
+
+    // Month View Elements
+    monthDisplay: document.getElementById('current-month-display'),
+    monthSelector: document.getElementById('month-kata-selector'),
+    monthKataBox: document.getElementById('selected-kata-month-box'),
+    monthKataName: document.getElementById('selected-kata-month-name'),
+    versionDisplay: document.getElementById('app-version')
 };
 
 // --- Preference Management ---
@@ -52,6 +60,43 @@ function savePreferences() {
         prefs[kata.name] = kata.ignore;
     });
     localStorage.setItem('kata_preferences', JSON.stringify(prefs));
+}
+
+function loadKataOfMonth() {
+    const saved = localStorage.getItem('kata_of_the_month');
+    const currentMonth = new Date().toLocaleString('de-DE', { month: 'long', year: 'numeric' });
+    
+    if (DOM.monthDisplay) DOM.monthDisplay.textContent = `Monat: ${currentMonth}`;
+
+    if (saved) {
+        const data = JSON.parse(saved);
+        // Only load if it's the same month
+        if (data.month === currentMonth) {
+            const kata = katas.find(k => k.name === data.name);
+            if (kata) {
+                DOM.monthSelector.value = katas.indexOf(kata);
+                updateMonthDisplay(kata);
+            }
+        }
+    }
+}
+
+function saveKataOfMonth(kataName) {
+    const currentMonth = new Date().toLocaleString('de-DE', { month: 'long', year: 'numeric' });
+    const data = {
+        name: kataName,
+        month: currentMonth
+    };
+    localStorage.setItem('kata_of_the_month', JSON.stringify(data));
+}
+
+function updateMonthDisplay(kata) {
+    if (kata) {
+        DOM.monthKataName.textContent = kata.name;
+        DOM.monthKataBox.style.display = 'block';
+    } else {
+        DOM.monthKataBox.style.display = 'none';
+    }
 }
 
 // --- Navigation Logic ---
@@ -119,6 +164,21 @@ function populateSelector() {
         option.value = index;
         option.textContent = kata.name;
         DOM.selector.appendChild(option);
+    });
+}
+
+function populateMonthSelector() {
+    if (!DOM.monthSelector) return;
+    DOM.monthSelector.innerHTML = '<option value="" disabled selected>Kata wählen...</option>';
+    
+    // Sort katas alphabetically for the month selector
+    const sortedKatas = [...katas].sort((a, b) => a.name.localeCompare(b.name));
+    
+    sortedKatas.forEach((kata) => {
+        const option = document.createElement('option');
+        option.value = katas.indexOf(kata);
+        option.textContent = kata.name;
+        DOM.monthSelector.appendChild(option);
     });
 }
 
@@ -275,6 +335,14 @@ DOM.deselectAllBtn.addEventListener('click', () => {
 DOM.btn.addEventListener('click', () => generateKata('pop'));
 DOM.selector.addEventListener('change', (e) => generateKata('pop', e.target.value));
 
+DOM.monthSelector.addEventListener('change', (e) => {
+    const kata = katas[e.target.value];
+    if (kata) {
+        updateMonthDisplay(kata);
+        saveKataOfMonth(kata.name);
+    }
+});
+
 // Touch Interaction
 let touchStartX = 0;
 let touchEndX = 0;
@@ -326,8 +394,13 @@ async function init() {
         // Start App logic
         loadPreferences();
         populateSelector();
+        populateMonthSelector();
+        loadKataOfMonth();
         resetUnshownKatas();
         
+        // Set Version
+        if (DOM.versionDisplay) DOM.versionDisplay.textContent = APP_VERSION;
+
         // Show first kata after a small delay for aesthetic effect
         setTimeout(() => generateKata('pop'), 500);
 
