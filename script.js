@@ -65,7 +65,7 @@ function savePreferences() {
 function loadKataOfMonth() {
     const saved = localStorage.getItem('kata_of_the_month');
     const currentMonth = new Date().toLocaleString('de-DE', { month: 'long', year: 'numeric' });
-    
+
     if (DOM.monthDisplay) DOM.monthDisplay.textContent = `Monat: ${currentMonth}`;
 
     if (saved) {
@@ -170,10 +170,10 @@ function populateSelector() {
 function populateMonthSelector() {
     if (!DOM.monthSelector) return;
     DOM.monthSelector.innerHTML = '<option value="" disabled selected>Kata wählen...</option>';
-    
+
     // Sort katas alphabetically for the month selector
     const sortedKatas = [...katas].sort((a, b) => a.name.localeCompare(b.name));
-    
+
     sortedKatas.forEach((kata) => {
         const option = document.createElement('option');
         option.value = katas.indexOf(kata);
@@ -281,7 +281,23 @@ DOM.navLinks.forEach(link => {
         const viewId = link.getAttribute('data-view');
         if (viewId) {
             e.preventDefault();
+
+            // If navigating back to trainer from the month view, load the Kata of the Month
+            const isFromMonthView = link.classList.contains('back-to-trainer') &&
+                link.closest('#view-month') !== null;
+
             switchView(viewId);
+
+            if (isFromMonthView) {
+                const saved = localStorage.getItem('kata_of_the_month');
+                if (saved) {
+                    const data = JSON.parse(saved);
+                    const kataIndex = katas.findIndex(k => k.name === data.name);
+                    if (kataIndex !== -1) {
+                        generateKata('pop', kataIndex);
+                    }
+                }
+            }
         }
     });
 });
@@ -375,7 +391,7 @@ async function init() {
         if (typeof KATA_DATA === 'undefined') {
             throw new Error('Kata-Daten konnten nicht gefunden werden. Bitte stelle sicher, dass katas.js korrekt geladen wurde.');
         }
-        
+
         // Convert data objects to Kata instances
         katas = KATA_DATA.map(item => new Kata(
             item.name,
@@ -397,7 +413,7 @@ async function init() {
         populateMonthSelector();
         loadKataOfMonth();
         resetUnshownKatas();
-        
+
         // Set Version
         if (DOM.versionDisplay) DOM.versionDisplay.textContent = APP_VERSION;
 
